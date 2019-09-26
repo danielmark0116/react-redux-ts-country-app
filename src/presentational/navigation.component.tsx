@@ -1,0 +1,68 @@
+import React, { Fragment } from 'react';
+import { NavLink } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+
+interface IProps {
+  children: React.ReactChild;
+}
+
+const Navigation = (props: IProps) => {
+  return (
+    <Fragment>
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <NavLink className="navbar-brand" to="/">
+          Państwa.js
+        </NavLink>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <NavLink
+                exact
+                className="nav-link"
+                activeStyle={{ color: 'red' }}
+                to="/countries"
+              >
+                Countries
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                className="nav-link"
+                activeStyle={{ color: 'red' }}
+                to="/continents"
+              >
+                Continents
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                className="nav-link"
+                activeStyle={{ color: 'red' }}
+                to="/contact"
+              >
+                Contact
+              </NavLink>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div className="container-fluid">{props.children}</div>
+    </Fragment>
+  );
+};
+
+export default Navigation;
